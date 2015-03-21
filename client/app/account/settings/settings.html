@@ -27,13 +27,13 @@
                  required/>
           <p class="help-block"
              ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
-            Password must be at least 3 characters.
+            密码至少3个字符
           </p>
         </div>
 
         <p class="help-block"> {{ message }} </p>
 
-        <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
+        <button class="btn btn-lg btn-primary pull-right" type="submit">确定修改</button>
       </form>
     </div>
   </div>

@@ -13,10 +13,10 @@ exports.setup = function (User, config) {
         if (err) return done(err);
 
         if (!user) {
-          return done(null, false, { message: 'This email is not registered.' });
+          return done(null, false, { message: '此邮箱尚未注册' });
         }
         if (!user.authenticate(password)) {
-          return done(null, false, { message: 'This password is not correct.' });
+          return done(null, false, { message: '密码错误' });
         }
         return done(null, user);
       });

@@ -59,14 +59,14 @@ UserSchema
   .path('email')
   .validate(function(email) {
     return email.length;
-  }, 'Email cannot be blank');
+  }, '邮箱地址不能为空');
 
 // Validate empty password
 UserSchema
   .path('hashedPassword')
   .validate(function(hashedPassword) {
     return hashedPassword.length;
-  }, 'Password cannot be blank');
+  }, '密码不能为空');
 
 // Validate email is not taken
 UserSchema
@@ -81,7 +81,7 @@ UserSchema
       }
       respond(true);
     });
-}, 'The specified email address is already in use.');
+}, '邮箱已经注册了，你可以直接去登录。');
 
 var validatePresenceOf = function(value) {
   return value && value.length;
