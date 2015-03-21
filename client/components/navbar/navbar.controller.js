@@ -3,8 +3,14 @@
 angular.module('endApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
-      'title': 'Home',
+      'title': '首页',
       'link': '/'
+    },{
+      'title': '应用商店',
+      'link': '/store'
+    },{
+      'title': '开放平台',
+      'link': '/open'
     }];
 
     $scope.isCollapsed = true;

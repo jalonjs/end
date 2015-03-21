@@ -3,34 +3,34 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h1>Sign up</h1>
+      <h1>注册</h1>
     </div>
     <div class="col-sm-12">
       <form class="form" name="form" ng-submit="register(form)" novalidate>
 
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
                                             'has-error': form.name.$invalid && submitted }">
-          <label>Name</label>
+          <label>昵称</label>
 
           <input type="text" name="name" class="form-control" ng-model="user.name"
                  required/>
           <p class="help-block" ng-show="form.name.$error.required && submitted">
-            A name is required
+            请输入昵称
           </p>
         </div>
 
         <div class="form-group" ng-class="{ 'has-success': form.email.$valid && submitted,
                                             'has-error': form.email.$invalid && submitted }">
-          <label>Email</label>
+          <label>邮箱</label>
 
           <input type="email" name="email" class="form-control" ng-model="user.email"
                  required
                  mongoose-error/>
           <p class="help-block" ng-show="form.email.$error.email && submitted">
-            Doesn't look like a valid email.
+            邮箱地址错误，请重新输入
           </p>
           <p class="help-block" ng-show="form.email.$error.required && submitted">
-            What's your email address?
+            输入你的邮箱地址
           </p>
           <p class="help-block" ng-show="form.email.$error.mongoose">
             {{ errors.email }}
@@ -39,7 +39,7 @@
 
         <div class="form-group" ng-class="{ 'has-success': form.password.$valid && submitted,
                                             'has-error': form.password.$invalid && submitted }">
-          <label>Password</label>
+          <label>密码</label>
 
           <input type="password" name="password" class="form-control" ng-model="user.password"
                  ng-minlength="3"
@@ -47,19 +47,19 @@
                  mongoose-error/>
           <p class="help-block"
              ng-show="(form.password.$error.minlength || form.password.$error.required) && submitted">
-            Password must be at least 3 characters.
+            密码最少为3个字符
           </p>
           <p class="help-block" ng-show="form.password.$error.mongoose">
             {{ errors.password }}
           </p>
         </div>
 
-        <div>
-          <button class="btn btn-inverse btn-lg btn-login" type="submit">
-            Sign up
+        <div class="text-right">
+          <button class="btn btn-info btn-lg btn-login" type="submit">
+            注册
           </button>
           <a class="btn btn-default btn-lg btn-register" href="/login">
-            Login
+            去登录
           </a>
         </div>
 
