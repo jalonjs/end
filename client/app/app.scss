@@ -15,10 +15,41 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
     padding: 0.2em 0;
 }
 
+//  覆盖样式，自定义样式
+
+$main-color: #76C2AF;
+
+.text-primary, .text-info{
+  color: $main-color;
+}
+.btn-primary, .btn-info {
+  background-color: $main-color;
+  border-color: $main-color;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+a {
+  color: $main-color;
+  cursor: pointer;
+  text-decoration: none;
+}
+.text-muted {
+  color: #999999;
+}
+
+.m-t {
+  margin-top: 10px;
+}
+
+.m-t-lg {
+  margin-top: 40px;
+}
 // Component styles are injected through grunt
 // injector
 @import 'account/login/login.scss';
 @import 'admin/admin.scss';
 @import 'main/main.scss';
+@import 'store/store.scss';
 @import 'modal/modal.scss';
 // endinjector
