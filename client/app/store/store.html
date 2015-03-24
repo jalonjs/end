@@ -8,22 +8,24 @@
         <div class="panel-heading">应用分类</div>
         <div class="page-body">
           <ul class="list-flat">
-            <li ng-repeat="item in storeMenuList">
-              <a ui-sref="{{ item.sref }}" class="active">{{ item.name }}</a>
+            <li ng-repeat="item in storeMenuList" class="{{ item.sref == 'store.recommend' ? 'menu-active' : '' }}">
+              <a ui-sref="{{ item.sref }}" >{{ item.name }}</a>
             </li>
           </ul>
         </div>
       </div>
     </div>
     <!--apps-->
-    <div ui-view=""></div>
     <div class="app-list col-md-10 col-sm-offset-0 row">
-      <div class="col-md-4 app-item" ng-repeat="item in storeAppList">
+      <!--<p class="container">推荐</p>-->
+      <div class="app-item" ng-repeat="item in storeAppList">
         <div class="thumbnail">
-          <img ng-src="{{ item.cover }}" class="item-cover">
+          <div class="item-cover">
+            <img ng-src="{{ item.cover }}" >
+          </div>
           <div class="caption item-info">
-            <h3>{{ item.name }}</h3>
-            <p>{{ item.introduction }}</p>
+            <h3 class="info-name">{{ item.name }}</h3>
+            <p class="info-intro">{{ item.introduction }}</p>
             <p class="text-right">
               <a href="store/{{ item.sort }}/{{ item.id }}/details" class="btn btn-default" role="button">查看详情</a>
               <a href="store/{{ item.sort }}/{{ item.id }}/play" class="btn btn-primary" role="button">开始游戏</a>
@@ -33,6 +35,7 @@
       </div>
 
     </div>
+    <div ui-view=""></div>
 
   </div>
 </div>
