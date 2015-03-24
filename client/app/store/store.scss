@@ -5,7 +5,11 @@
       padding-left: 0;
       li {
         list-style-type: none;
-        padding: 10px 20px;
+        a {
+          text-decoration: none;
+          display: block;
+          padding: 10px 20px;
+        }
         &.menu-active{
           background: $main-color;
           &:hover {
@@ -14,7 +18,6 @@
           a {
             color: #FFFFFF;
             cursor: default;
-            text-decoration: none;
           }
         }
         &:hover {
@@ -31,8 +34,11 @@
 
   .app-list {
     .app-item {
-      width: 300px;
+      width: 290px;
       height: 380px;
+      float: left;
+      margin-right: 15px;
+      margin-bottom: 40px;
       .item-cover {
         width: 100%;
         height: 200px;

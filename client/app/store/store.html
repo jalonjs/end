@@ -2,14 +2,15 @@
 
 <div class="container m-t-lg">
   <div class="app-store row">
+
     <!--menu-->
     <div class="menu col-md-2">
       <div class="panel panel-default">
         <div class="panel-heading">应用分类</div>
         <div class="page-body">
           <ul class="list-flat">
-            <li ng-repeat="item in storeMenuList" class="{{ item.sref == 'store.recommend' ? 'menu-active' : '' }}">
-              <a ui-sref="{{ item.sref }}" >{{ item.name }}</a>
+            <li ng-repeat="item in storeMenuList" class="{{ item.kind == kind ? 'menu-active':''}}">
+              <a ng-href="/store/{{ item.kind }}" >{{ item.name }}</a>
             </li>
           </ul>
         </div>
@@ -27,15 +28,14 @@
             <h3 class="info-name">{{ item.name }}</h3>
             <p class="info-intro">{{ item.introduction }}</p>
             <p class="text-right">
-              <a href="store/{{ item.sort }}/{{ item.id }}/details" class="btn btn-default" role="button">查看详情</a>
-              <a href="store/{{ item.sort }}/{{ item.id }}/play" class="btn btn-primary" role="button">开始游戏</a>
+              <a href="store/kind/{{ item.kind }}/{{ item.id }}/details" class="btn btn-default" role="button">查看详情</a>
+              <a href="store/kind/{{ item.kind }}/{{ item.id }}/play" class="btn btn-primary" role="button">马上开始</a>
             </p>
           </div>
         </div>
       </div>
 
     </div>
-    <div ui-view=""></div>
 
   </div>
 </div>

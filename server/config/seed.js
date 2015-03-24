@@ -7,6 +7,31 @@
 
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
+var App = require('../api/app/app.model');
+
+App.find({}).remove(function() {
+  App.create({
+    name: '跳高王',
+    introduction: '这是一款html5网页游戏，玩家通过手机扫描二维码，即可使用对应的游戏手柄，进行愉快玩耍。',
+    cover: '/assets/images/jump.png',
+    kind: 'game'
+  },{
+    name: '全场投票',
+    introduction: '适用于会场，演播间，会议室，教室等多种场合的多人投票应用。',
+    cover: '/assets/images/pc.png',
+    kind: 'media'
+  },{
+    name: '跳高王',
+    introduction: '这是一款html5网页游戏，玩家通过手机扫描二维码，即可使用对应的游戏手柄，进行愉快玩耍。',
+    cover: '/assets/images/jump.png',
+    kind: 'popular'
+  },{
+    name: '全场投票',
+    introduction: '适用于会场，演播间，会议室，教室等多种场合的多人投票应用。',
+    cover: '/assets/images/pc.png',
+    kind: 'popular'
+  });
+});
 
 Thing.find({}).remove(function() {
   Thing.create({

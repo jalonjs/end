@@ -1,30 +1,35 @@
 'use strict';
 
 angular.module('endApp')
-  .controller('StoreCtrl', function ($scope) {
+  .controller('StoreCtrl', ['$scope', '$stateParams', 'storeAPI', function ($scope, $stateParams, storeAPI) {
 
     //  商店菜单的列表数据
     $scope.storeMenuList = [{
       name: '推荐',
-      sref: 'store.recommend'
+      kind: 'popular'
     },{
       name: '游戏',
-      sref: 'store.game'
+      kind: 'game'
     },{
       name: '办公',
-      sref: 'store.office'
+      kind: 'office'
     },{
       name: '媒体',
-      sref: 'store.media'
+      kind: 'media'
     }];
 
     //  菜单对应的应用的列表数据
-    $scope.storeAppList = [{
-      id: 1,
-      name: '跳高王',
-      introduction: '这是一款html5网页游戏，玩家通过手机扫描二维码，即可使用对应的游戏手柄，进行愉快玩耍。',
-      cover: '/assets/images/jump.png',
-      sort: 'game'
-    }];
+    $scope.kind = $stateParams.kind;
+    if(!$scope.kind) {
+      $scope.kind = 'popular';
+      storeAPI.getAppList('popular').success(function(list) {
+        $scope.storeAppList = list;
+      });
+    }else {
+      storeAPI.getAppList($scope.kind).success(function(list) {
+        $scope.storeAppList = list;
+      });
+    }
 
-  });
+
+  }]);
