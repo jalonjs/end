@@ -6,6 +6,9 @@ angular.module('endApp')
       return {
         getAppList: function (kind) {
           return $http.get('/api/apps/kind/' + kind);
+        },
+        getAppById: function (id) {
+          return $http.get('/api/apps/' + id);
         }
       };
     }
