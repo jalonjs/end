@@ -19,6 +19,13 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 
 $main-color: #76C2AF;
 
+@mixin rotate90() {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+}
+
 .text-primary, .text-info{
   color: $main-color;
 }
@@ -49,6 +56,8 @@ a {
 // injector
 @import 'account/login/login.scss';
 @import 'admin/admin.scss';
+@import 'box/box.scss';
+@import 'handle/handle.scss';
 @import 'main/main.scss';
 @import 'open/open.scss';
 @import 'store/store.scss';

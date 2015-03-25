@@ -28,8 +28,8 @@
             <h3 class="info-name">{{ item.name }}</h3>
             <p class="info-intro">{{ item.introduction }}</p>
             <p class="text-right">
-              <a href="store/kind/{{ item.kind }}/{{ item.id }}/details" class="btn btn-default" role="button">查看详情</a>
-              <a href="store/kind/{{ item.kind }}/{{ item.id }}/play" class="btn btn-primary" role="button">马上开始</a>
+              <a href="store/kind/{{ item.kind }}/{{ item._id }}/details" class="btn btn-default hide" role="button">查看详情</a>
+              <a target="_blank" href="box/play/{{ item._id }}/handle/{{ item.handleType }}" class="btn btn-primary" role="button">马上开始</a>
             </p>
           </div>
         </div>
