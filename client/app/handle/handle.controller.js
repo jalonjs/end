@@ -14,9 +14,20 @@ angular.module('endApp')
       });
 
       //  游戏手柄 game 前端扫码访问成功后，通知服务器
-      var appId = $stateParams.id;
+      var uniqueId = $stateParams.id;
       var handleId = $stateParams.handleId;
 
-      socket.socket.emit('handle:ok');
+      socket.socket.emit('handle:ok', uniqueId);
+
+      //  按钮对应命令们
+      $scope.cmdtouch = function (cmd) {
+        var ucmd = {
+          uid : uniqueId,
+          cmd : cmd
+        };
+        socket.socket.emit('handle:cmd', ucmd);
+      }
+
+
 
     }]);

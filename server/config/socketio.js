@@ -54,5 +54,15 @@ module.exports = function (socketio) {
     // Call onConnect.
     onConnect(socket);
     console.info('[%s] CONNECTED', socket.address);
+
+    // 监听手柄加载完毕
+    socket.on('handle:ok', function (uniqueId) {
+      socketio.emit('box:'+ uniqueId +':mask:hide');
+    });
+    // 命令
+    socket.on('handle:cmd', function (ucmd) {
+      socketio.emit('box:'+ ucmd.uid +':cmd', ucmd.cmd);
+    });
+
   });
 };
