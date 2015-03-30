@@ -49,9 +49,27 @@ a {
   margin-top: 10px;
 }
 
+.m-b {
+  margin-bottom: 10px;
+}
+
 .m-t-lg {
   margin-top: 40px;
 }
+
+//code highlight
+pre {
+  padding: 30px 0 0 0;
+}
+code .red {
+  color: #d44950;
+}
+
+//  私有style
+#header-logo {
+  width: 20px;
+}
+
 // Component styles are injected through grunt
 // injector
 @import 'account/login/login.scss';

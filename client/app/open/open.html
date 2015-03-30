@@ -2,6 +2,42 @@
 
 <div class="container m-t-lg">
   <div class="open row">
-    <code>open API page</code>
+    <div class="table-responsive">
+      <h3>经典游戏手柄按键及对应命令接口</h3>
+      <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>手柄按键</th>
+          <th>命令接口</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in cmdList">
+          <th>{{ item.handle }}</th>
+          <th scope="row">
+            <code>{{ item.cmd }}</code>
+          </th>
+        </tr>
+        </tbody>
+      </table>
+
+      <pre>
+        <span class="text-muted">你只需要监听message事件,并根据相应的cmd命令，做出对应的反应操作即可。</span>
+        <code>
+          window.addEventListener(<span class="red">"message"</span>, function( <span class="red">event</span> ) {
+              var <span class="red">cmd</span> = <span class="red">event.data</span>;
+
+              <span class="text-muted">//  根据命名执行对应的操作</span>
+              switch (<span class="red">cmd</span>) {
+                  case <span class="red">'up'</span>:
+                      <span class="text-muted">//  todo something</span>
+                      console.log(<span class="red">'I will jump!'</span>);
+                      break;
+              }
+          });
+        </code>
+      </pre>
+
+    </div>
   </div>
 </div>
