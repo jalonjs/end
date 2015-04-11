@@ -11,9 +11,9 @@ var App = require('../api/app/app.model');
 
 App.find({}).remove(function() {
   App.create({
-    name: '跳高王',
+    name: '太空大战',
     introduction: '这是一款html5网页游戏，玩家通过手机扫描二维码，即可使用对应的游戏手柄，进行愉快玩耍。',
-    cover: '/assets/images/jump.png',
+    cover: '/assets/images/spacewar.png',
     kind: 'game'
   },{
     name: '全场投票',
@@ -21,9 +21,9 @@ App.find({}).remove(function() {
     cover: '/assets/images/pc.png',
     kind: 'media'
   },{
-    name: '跳高王',
+    name: '太空大战',
     introduction: '这是一款html5网页游戏，玩家通过手机扫描二维码，即可使用对应的游戏手柄，进行愉快玩耍。',
-    cover: '/assets/images/jump.png',
+    cover: '/assets/images/spacewar.png',
     kind: 'popular'
   },{
     name: '全场投票',
