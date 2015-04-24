@@ -1,0 +1,19 @@
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="app in apps">
+    <div class="media">
+      <div class="media-left pull-left">
+        <a href="#">
+          <img class="media-object"  alt="{{ app.name }}" ng-src="{{app.cover}}" style="width: 64px; height: 64px; border-radius: 50%;">
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading" id="media-heading"><strong>{{app.name}}</strong><br><a class="anchorjs-link" href="#media-heading"><span class="anchorjs-icon"></span></a></h4>
+        {{app.introduction}}
+      </div>
+    </div>
+    <div style="height: 20px;">
+      <a ng-if="user.email != 'admin@admin.com'" ng-click="delete(app)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
+    </div>
+  </li>
+</ul>
+

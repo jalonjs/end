@@ -17,6 +17,8 @@ angular.module('endApp')
       cmd:'y', handle:'功能键 Y'
     },{
       cmd:'z', handle:'功能键 Z'
+    },{
+      cmd:'touchend', handle:'手指离开按键'
     }];
 
 

@@ -22,10 +22,12 @@ angular.module('endApp')
       //  按钮对应命令们
       $scope.cmdtouch = function (cmd) {
         var ucmd = {
-          uid : uniqueId,
-          cmd : cmd
+          uid: uniqueId,
+          cmd: cmd,
+          time: new Date().getTime()
         };
         socket.socket.emit('handle:cmd', ucmd);
+
       }
 
 

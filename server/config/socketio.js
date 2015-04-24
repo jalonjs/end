@@ -61,7 +61,8 @@ module.exports = function (socketio) {
     });
     // 命令
     socket.on('handle:cmd', function (ucmd) {
-      socketio.emit('box:'+ ucmd.uid +':cmd', ucmd.cmd);
+      console.log('手柄到服务器的误差为：', new Date().getTime() - ucmd.time );
+      socketio.emit('box:'+ ucmd.uid +':cmd', ucmd);
     });
 
   });

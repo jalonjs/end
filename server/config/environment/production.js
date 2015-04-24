@@ -14,10 +14,16 @@ module.exports = {
             8080,
 
   // MongoDB connection options
+  //mongo: {
+  //  uri:    process.env.MONGOLAB_URI ||
+  //          process.env.MONGOHQ_URL ||
+  //          process.env.OPENSHIFT_MONGODB_DB_URL+process.env.OPENSHIFT_APP_NAME ||
+  //          'mongodb://localhost/end'
+  //}
+
   mongo: {
-    uri:    process.env.MONGOLAB_URI ||
-            process.env.MONGOHQ_URL ||
-            process.env.OPENSHIFT_MONGODB_DB_URL+process.env.OPENSHIFT_APP_NAME ||
-            'mongodb://localhost/end'
-  }
+    uri: 'mongodb://localhost/end-dev'
+  },
+
+  seedDB: true
 };

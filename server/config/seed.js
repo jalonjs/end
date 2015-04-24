@@ -35,11 +35,8 @@ App.find({}).remove(function() {
 
 Thing.find({}).remove(function() {
   Thing.create({
-    name : '跳高王',
-    info : 'html5游戏。'
-  }, {
-    name : '全场投票',
-    info : '适用于会场，演播间，会议室，教室等多种场合的多人投票应用。'
+    name : '太空大战',
+    info : '这是一款html5网页游戏，玩家通过手机扫描二维码，即可使用对应的游戏手柄，进行愉快玩耍。'
   });
 });
 

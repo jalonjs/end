@@ -1,1 +1,17 @@
 .trash { color:rgb(209, 91, 71); }
+
+.admin-list {
+  min-height: 300px;
+  li {
+    list-style-type: none;
+    padding: 10px;
+    text-align: center;
+    a {
+      text-decoration: none;
+    }
+    a.active {
+      color: #cccccc;
+      cursor: default;
+    }
+  }
+}
