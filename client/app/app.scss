@@ -15,8 +15,7 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
     padding: 0.2em 0;
 }
 
-//  覆盖样式，自定义样式
-
+//  自定义变量
 $main-color: #76C2AF;
 
 @mixin rotate90() {
@@ -25,6 +24,23 @@ $main-color: #76C2AF;
   -o-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
 }
+
+// Component styles are injected through grunt
+// injector
+@import 'account/login/login.scss';
+@import 'admin/admin.scss';
+@import 'admin/app/app.scss';
+@import 'admin/user/user.scss';
+@import 'box/box.scss';
+@import 'handle/handle.scss';
+@import 'main/main.scss';
+@import 'open/open.scss';
+@import 'store/store.scss';
+@import 'modal/modal.scss';
+// endinjector
+
+
+//  覆盖样式，自定义样式
 
 .text-primary, .text-info{
   color: $main-color;
@@ -36,6 +52,11 @@ $main-color: #76C2AF;
     opacity: 0.8;
   }
 }
+//  modal
+.modal-primary .modal-header {
+  background: $main-color;
+}
+
 a {
   color: $main-color;
   cursor: pointer;
@@ -69,17 +90,3 @@ code .red {
 #header-logo {
   width: 20px;
 }
-
-// Component styles are injected through grunt
-// injector
-@import 'account/login/login.scss';
-@import 'admin/admin.scss';
-@import 'admin/app/app.scss';
-@import 'admin/user/user.scss';
-@import 'box/box.scss';
-@import 'handle/handle.scss';
-@import 'main/main.scss';
-@import 'open/open.scss';
-@import 'store/store.scss';
-@import 'modal/modal.scss';
-// endinjector

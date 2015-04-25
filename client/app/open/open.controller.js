@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('endApp')
-  .controller('OpenCtrl', function ($scope) {
+  .controller('OpenCtrl', ['$scope', 'Modal', 'openAPI', function ($scope, Modal, openAPI) {
 
     $scope.cmdList = [{
       cmd:'up', handle:'上键 ↑'
@@ -21,6 +21,15 @@ angular.module('endApp')
       cmd:'touchend', handle:'手指离开按键'
     }];
 
+    /*接入开放平台的弹出框*/
+    $scope.openJoinData = {};
+    $scope.showOpenJoinModal = function () {
+      var openJoinModal = Modal.confirm.openJoin();
+      openJoinModal(function () {
+
+        openAPI.openJoinSubmit();
+      });
+    };
 
 
-  });
+  }]);

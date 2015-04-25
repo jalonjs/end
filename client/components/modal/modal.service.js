@@ -8,7 +8,7 @@ angular.module('endApp')
      * @param  {String} modalClass - (optional) class(es) to be applied to the modal
      * @return {Object}            - the instance $modal.open() returns
      */
-    function openModal(scope, modalClass) {
+    function openModal(scope, modalClass, templateUrl) {
       var modalScope = $rootScope.$new();
       scope = scope || {};
       modalClass = modalClass || 'modal-default';
@@ -16,7 +16,7 @@ angular.module('endApp')
       angular.extend(modalScope, scope);
 
       return $modal.open({
-        templateUrl: 'components/modal/modal.html',
+        templateUrl: templateUrl,
         windowClass: modalClass,
         scope: modalScope
       });
@@ -33,7 +33,7 @@ angular.module('endApp')
          * @param  {Function} del - callback, ran when delete is confirmed
          * @return {Function}     - the function to open the modal (ex. myModalFn)
          */
-        delete: function(del) {
+        openJoin: function(del) {
           del = del || angular.noop;
 
           /**
@@ -41,31 +41,31 @@ angular.module('endApp')
            * @param  {String} name   - name or info to show on modal
            * @param  {All}           - any additional args are passed staight to del callback
            */
-          return function() {
+          return function(ok) {
             var args = Array.prototype.slice.call(arguments),
                 name = args.shift(),
                 deleteModal;
-
             deleteModal = openModal({
               modal: {
                 dismissable: true,
-                title: 'Confirm Delete',
-                html: '<p>Are you sure you want to delete <strong>' + name + '</strong> ?</p>',
+                title: '接入应用',
+                //html: '<p>Are you sure you want to delete <strong>' + name + '</strong> ?</p>',
                 buttons: [{
-                  classes: 'btn-danger',
-                  text: 'Delete',
+                  classes: 'btn-primary',
+                  text: '确定',
                   click: function(e) {
+                    ok();
                     deleteModal.close(e);
                   }
                 }, {
                   classes: 'btn-default',
-                  text: 'Cancel',
+                  text: '取消',
                   click: function(e) {
                     deleteModal.dismiss(e);
                   }
                 }]
               }
-            }, 'modal-danger');
+            }, 'modal-primary', 'components/modal/modal.open.html');
 
             deleteModal.result.then(function(event) {
               del.apply(event, args);

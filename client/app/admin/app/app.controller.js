@@ -1,11 +1,14 @@
 'use strict';
 
 angular.module('endApp')
-  .controller('AppCtrl', ['$scope', 'appAPI', function ($scope, appAPI) {
+  .controller('AppCtrl', ['$scope', 'appAPI', 'Modal', function ($scope, appAPI, Modal) {
 
     appAPI.getAllApps().success(function (data) {
       $scope.apps = data;
+
     });
+
+
 
     //  删除某个app
     $scope.delete = function(app) {

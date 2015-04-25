@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <button ng-if="modal.dismissable" type="button" ng-click="$dismiss()" class="close">&times;</button>
+  <h4 ng-if="modal.title" ng-bind="modal.title" class="modal-title"></h4>
+</div>
+<div class="modal-body">
+  <!--<p ng-if="modal.text" ng-bind="modal.text"></p>-->
+  <!--<div ng-if="modal.html" ng-bind-html="modal.html"></div>-->
+  <form>
+    <div class="form-group">
+      <label for="">怎么称呼你</label>
+      <input type="text" class="form-control" placeholder="姓名/昵称">
+    </div>
+    <div class="form-group">
+      <label for="">你的联系方式</label>
+      <input type="text" class="form-control" placeholder="QQ/电话">
+    </div>
+    <div class="form-group">
+      <label for="">应用/游戏的名称</label>
+      <input type="text" class="form-control" placeholder="20个字以内（可包括中英文）" maxlength="20">
+    </div>
+    <div class="form-group">
+      <label for="">应用/游戏的地址</label>
+      <input type="text" class="form-control" placeholder="应用或游戏的在线地址">
+    </div>
+    <div class="form-group">
+      <label for="">应用/游戏的封面地址（图片大小300*200）</label>
+      <input type="text" class="form-control" placeholder="请提供在线地址，方便随时更新">
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button ng-repeat="button in modal.buttons" ng-class="button.classes" ng-click="button.click($event)" ng-bind="button.text" class="btn"></button>
+</div>
