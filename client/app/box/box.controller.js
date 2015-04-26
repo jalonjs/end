@@ -6,7 +6,8 @@ angular.module('endApp')
       //  更改title
       document.title = 'End盒子——用手机做你的随身手柄';
 
-      var myHost = 'http://172.20.10.2:1643';
+      var myHost = 'http://192.168.1.110:1643';
+      //var myHost = 'http://172.20.10.2:1643';
       //  二维码， app
       $scope.maskShow = true;  //  显示遮罩及二维码
 

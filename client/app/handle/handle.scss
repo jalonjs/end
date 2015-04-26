@@ -65,4 +65,29 @@
     }
   }
 
+//  开始 暂停
+  #game-btn-start {
+    position: absolute;
+    left: 10px;
+    bottom: 180px;
+    padding: 10px 20px;
+    @include rotate90();
+  }
+
+  #game-btn-pause {
+    position: absolute;
+    left: 10px;
+    bottom: 100px;
+    padding: 10px 20px;
+    @include rotate90();
+  }
+
+  #game-btn-refresh {
+    position: absolute;
+    left: 10px;
+    bottom: 20px;
+    padding: 10px 20px;
+    @include rotate90();
+  }
+
 }

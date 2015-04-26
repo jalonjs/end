@@ -22,5 +22,13 @@
     <div class="line line-3">
       <button class="btn btn-info btn-lg" ng-touchstart="cmdtouch('z')" ng-touchend="cmdtouch('touchend')">Z</button>
     </div>
+    <!--开始和暂停-->
+    <button class="btn btn-info" id="game-btn-start" ng-touchstart="cmdtouch('start')" ng-touchend="cmdtouch('touchend')">开始</button>
+    <button class="btn btn-info" id="game-btn-pause" ng-touchstart="cmdtouch('pause')" ng-touchend="cmdtouch('touchend')" >暂停</button>
+    <button class="btn btn-info" id="game-btn-refresh" ng-touchstart="cmdtouch('refresh')" ng-touchend="cmdtouch('touchend')" >刷新</button>
+
   </div>
+  <audio id="touchAudio" src="assets/audio/notify.wav">
+    not work
+  </audio>
 </div>
