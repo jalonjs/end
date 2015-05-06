@@ -15,6 +15,9 @@ angular.module('endApp')
         },
         deleteAppById: function (id) {
           return $http.get('/api/apps/delete/' + id);
+        },
+        appAddSubmit:  function (app) {
+          return $http.post('/api/apps/', app);
         }
       };
     }

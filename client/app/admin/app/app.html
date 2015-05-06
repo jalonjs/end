@@ -1,3 +1,7 @@
+<ol class="breadcrumb">
+  <li><button class="btn btn-default" ng-click="">添加应用</button></li>
+</ol>
+
 <ul class="list-group">
   <li class="list-group-item" ng-repeat="app in apps">
     <div class="media">
@@ -11,8 +15,8 @@
         {{app.introduction}}
       </div>
     </div>
-    <div style="height: 20px;">
-      <a ng-if="user.email != 'admin@admin.com'" ng-click="delete(app)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
+    <div style="height: 20px; position: absolute; right: 10px; top: 10px;">
+      <a ng-if="user.email != 'admin@admin.com'" ng-click="appDelete(app)" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
     </div>
   </li>
 </ul>

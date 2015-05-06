@@ -7,6 +7,7 @@ var AppSchema = new Schema({
   name: String,
   introduction: String,
   cover: String,
+  url: String,
   kind: String
 });
 

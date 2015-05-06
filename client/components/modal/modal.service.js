@@ -27,25 +27,14 @@ angular.module('endApp')
 
       /* Confirmation modals */
       confirm: {
+        openJoin: function(e) {
+          e = e || angular.noop;
 
-        /**
-         * Create a function to open a delete confirmation modal (ex. ng-click='myModalFn(name, arg1, arg2...)')
-         * @param  {Function} del - callback, ran when delete is confirmed
-         * @return {Function}     - the function to open the modal (ex. myModalFn)
-         */
-        openJoin: function(del) {
-          del = del || angular.noop;
-
-          /**
-           * Open a delete confirmation modal
-           * @param  {String} name   - name or info to show on modal
-           * @param  {All}           - any additional args are passed staight to del callback
-           */
           return function(ok) {
             var args = Array.prototype.slice.call(arguments),
                 name = args.shift(),
-                deleteModal;
-            deleteModal = openModal({
+                thisModal;
+            thisModal = openModal({
               modal: {
                 dismissable: true,
                 title: '接入应用',
@@ -55,23 +44,60 @@ angular.module('endApp')
                   text: '确定',
                   click: function(e) {
                     ok();
-                    deleteModal.close(e);
+                    thisModal.close(e);
                   }
                 }, {
                   classes: 'btn-default',
                   text: '取消',
                   click: function(e) {
-                    deleteModal.dismiss(e);
+                    thisModal.dismiss(e);
                   }
                 }]
               }
             }, 'modal-primary', 'components/modal/modal.open.html');
 
-            deleteModal.result.then(function(event) {
-              del.apply(event, args);
+            thisModal.result.then(function(event) {
+              e.apply(event, args);
+            });
+          };
+        },
+
+        //  添加app
+        appAdd: function(e) {
+          e = e || angular.noop;
+
+          return function(ok) {
+            var args = Array.prototype.slice.call(arguments),
+              name = args.shift(),
+              thisModal;
+            thisModal = openModal({
+              modal: {
+                dismissable: true,
+                title: '添加应用',
+                //html: '<p>Are you sure you want to delete <strong>' + name + '</strong> ?</p>',
+                buttons: [{
+                  classes: 'btn-primary',
+                  text: '添加',
+                  click: function(e) {
+                    ok(app);
+                    thisModal.close(e);
+                  }
+                }, {
+                  classes: 'btn-default',
+                  text: '取消',
+                  click: function(e) {
+                    thisModal.dismiss(e);
+                  }
+                }]
+              }
+            }, 'modal-primary', 'components/modal/modal.app.add.html');
+
+            thisModal.result.then(function(event) {
+              e.apply(event, args);
             });
           };
         }
+
       }
     };
   });
