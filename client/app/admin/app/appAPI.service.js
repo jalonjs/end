@@ -18,6 +18,9 @@ angular.module('endApp')
         },
         appAddSubmit:  function (app) {
           return $http.post('/api/apps/', app);
+        },
+        popularAppById: function (app) {
+          return $http.post('/api/apps/set/popular/' + app._id, app);
         }
       };
     }

@@ -11,8 +11,11 @@ angular.module('endApp')
     //  添加app
     $scope.appAdd = function () {
       var appAddModal = Modal.confirm.appAdd();
-      appAddModal(function (app) {
-        appAPI.appAddSubmit(app);
+      appAddModal(function (app, cb) {
+        appAPI.appAddSubmit(app).success(function (res) {
+          console.log(res);
+          cb();  //  收起modal
+        });
       });
     };
 
@@ -24,6 +27,15 @@ angular.module('endApp')
             $scope.apps.splice(i, 1);
           }
         });
+      });
+
+    };
+
+    //  把app设为推荐app
+    $scope.appPopular = function(app) {
+      app.popular = !app.popular;
+      appAPI.popularAppById(app).success(function () {
+        
       });
 
     };

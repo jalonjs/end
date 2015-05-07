@@ -16,14 +16,27 @@
     </div>
     <div class="form-group">
       <label for="">应用/游戏的地址</label>
-      <input type="text" class="form-control" ng-model="modal.data.">
+      <input type="text" class="form-control" ng-model="modal.data.link">
     </div>
     <div class="form-group">
       <label for="">应用/游戏的封面地址（图片大小300*200）</label>
       <input type="text" class="form-control" ng-model="modal.data.cover">
     </div>
+    <div class="form-group">
+      <label for="">所属类别</label><br/>
+      <label class="radio-inline">
+        <input type="radio" value="game" ng-model="modal.data.kind"> 游戏
+      </label>
+      <label class="radio-inline">
+        <input type="radio" value="office" ng-model="modal.data.kind"> 办公
+      </label>
+      <label class="radio-inline">
+        <input type="radio" value="media" ng-model="modal.data.kind"> 媒体
+      </label>
+
+    </div>
   </form>
 </div>
 <div class="modal-footer">
-  <button ng-repeat="button in modal.buttons" ng-class="button.classes" ng-click="button.click($event)" ng-bind="button.text" class="btn"></button>
+  <button ng-repeat="button in modal.buttons" ng-class="button.classes" ng-click="button.click(modal.data)" ng-bind="button.text" class="btn"></button>
 </div>

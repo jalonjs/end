@@ -1,7 +1,7 @@
 <ol class="breadcrumb">
-  <li><button class="btn btn-default" ng-click="">添加应用</button></li>
+  <li><button class="btn btn-default" ng-click="appAdd()">+ 添加应用</button></li>
 </ol>
-
+<h5>已有应用</h5>
 <ul class="list-group">
   <li class="list-group-item" ng-repeat="app in apps">
     <div class="media">
@@ -11,12 +11,17 @@
         </a>
       </div>
       <div class="media-body">
-        <h4 class="media-heading" id="media-heading"><strong>{{app.name}}</strong><br><a class="anchorjs-link" href="#media-heading"><span class="anchorjs-icon"></span></a></h4>
-        {{app.introduction}}
+        <h4 class="media-heading" id="media-heading">
+          <strong>{{app.name}}</strong>
+        </h4>
+        {{app.introduction}}<br/>
+        <span class="label label-danger">{{ app.kind | appKindName }}</span>
       </div>
     </div>
     <div style="height: 20px; position: absolute; right: 10px; top: 10px;">
-      <a ng-if="user.email != 'admin@admin.com'" ng-click="appDelete(app)" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
+      <a ng-click="appPopular(app)" class="btn btn-primary btn-xs" ng-if="!app.popular"><span class="glyphicon glyphicon-thumbs-up"></span>推荐</a>
+      <a ng-click="appPopular(app)" class="btn btn-default btn-xs" ng-if="app.popular"><span class="glyphicon glyphicon-thumbs-up"></span>取消推荐</a>
+      <a ng-click="appDelete(app)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span>删除</a>
     </div>
   </li>
 </ul>

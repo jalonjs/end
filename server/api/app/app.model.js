@@ -8,7 +8,8 @@ var AppSchema = new Schema({
   introduction: String,
   cover: String,
   url: String,
-  kind: String
+  kind: String,
+  popular: { type: Boolean, default: false }
 });
 
 

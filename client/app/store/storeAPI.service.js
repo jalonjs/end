@@ -12,6 +12,9 @@ angular.module('endApp')
         },
         getAppById: function (id) {
           return $http.get('/api/apps/' + id);
+        },
+        getAppPopular: function() {
+          return $http.get('/api/apps/kind/popular');
         }
       };
     }

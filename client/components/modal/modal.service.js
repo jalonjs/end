@@ -52,7 +52,8 @@ angular.module('endApp')
                   click: function(e) {
                     thisModal.dismiss(e);
                   }
-                }]
+                }],
+                data: {}
               }
             }, 'modal-primary', 'components/modal/modal.open.html');
 
@@ -78,9 +79,11 @@ angular.module('endApp')
                 buttons: [{
                   classes: 'btn-primary',
                   text: '添加',
-                  click: function(e) {
-                    ok(app);
-                    thisModal.close(e);
+                  click: function(data) {
+                    ok(data, cb);
+                    function cb() {
+                      thisModal.close(e);
+                    }
                   }
                 }, {
                   classes: 'btn-default',
@@ -88,7 +91,10 @@ angular.module('endApp')
                   click: function(e) {
                     thisModal.dismiss(e);
                   }
-                }]
+                }],
+                data: {
+                  popular: false
+                }
               }
             }, 'modal-primary', 'components/modal/modal.app.add.html');
 

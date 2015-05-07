@@ -11,6 +11,15 @@ exports.index = function(req, res) {
   });
 };
 
+// Get popular apps
+exports.popularList = function(req, res) {
+  App.find({ popular : true }, function (err, list) {
+    if(err) { return handleError(res, err); }
+    if(!list) { return res.send(404); }
+    return res.json(200, list);
+  });
+};
+
 // Get list of apps by kind of
 exports.kindList = function(req, res) {
   App.find({ kind : req.params.kind }, function (err, list) {
@@ -59,6 +68,20 @@ exports.destroy = function(req, res) {
     app.remove(function(err) {
       if(err) { return handleError(res, err); }
       return res.send(204);
+    });
+  });
+};
+
+// set a app be popular.
+exports.popular = function(req, res) {
+  if(req.body._id) { delete req.body._id; }
+  App.findById(req.params.id, function (err, app) {
+    if (err) { return handleError(res, err); }
+    if(!app) { return res.send(404); }
+    var updated = _.merge(app, req.body);
+    updated.save(function (err) {
+      if (err) { return handleError(res, err); }
+      return res.json(200, app);
     });
   });
 };

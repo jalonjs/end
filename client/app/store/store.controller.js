@@ -20,9 +20,9 @@ angular.module('endApp')
 
     //  菜单对应的应用的列表数据
     $scope.kind = $stateParams.kind;
-    if(!$scope.kind) {
+    if(!$scope.kind || $scope.kind == 'popular') {
       $scope.kind = 'popular';
-      storeAPI.getAppList('popular').success(function(list) {
+      storeAPI.getAppPopular().success(function(list) {
         $scope.storeAppList = list;
       });
     }else {
