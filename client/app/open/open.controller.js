@@ -1,12 +1,16 @@
 'use strict';
 
 angular.module('endApp')
-  .controller('OpenCtrl', ['$scope', 'Modal', 'openAPI', '$state', 'Auth',
-    function ($scope, Modal, openAPI, $state, Auth) {
+  .controller('OpenCtrl', ['$scope', 'Modal', 'openAPI', '$state', 'Auth', '$rootScope', 'userAPI',
+    function ($scope, Modal, openAPI, $state, Auth, $rootScope, userAPI) {
 
       //  登录后才可以进入开放平台
       if(!Auth.isLoggedIn()) {
         $state.go('login');
+      }else {
+        userAPI.getMe().success(function (me) {
+          $rootScope.me = me;
+        });
       }
 
 
@@ -32,8 +36,9 @@ angular.module('endApp')
       $scope.openJoinData = {};
       $scope.showOpenJoinModal = function () {
         var openJoinModal = Modal.confirm.openJoin();
-        openJoinModal(function (data, cd) {
-          openAPI.openJoinSubmit(data).success(function (res) {
+        openJoinModal(function (app, cd) {
+          app.userId = $rootScope.me._id;
+          openAPI.openJoinSubmit(app).success(function (res) {
             cd();
           });
         });

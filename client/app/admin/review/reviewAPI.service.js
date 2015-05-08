@@ -10,6 +10,9 @@ angular.module('endApp')
         getAppById: function (id) {
           return $http.get('/api/things/' + id);
         },
+        getAppByUserId: function (userId) {
+          return $http.get('/api/things/user/' + userId);
+        },
         //  审查通过，标示已通过
         reviewAppPass: function (app) {
           return $http.post('/api/things/pass/'+ app._id, app);

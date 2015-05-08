@@ -6,6 +6,9 @@ angular.module('endApp')
       return {
         getAllusers: function () {
           return $http.get('/api/users/');
+        },
+        getMe: function () {
+          return $http.get('/api/users/me');
         }
       };
     }

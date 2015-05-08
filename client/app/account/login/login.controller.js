@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('endApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location) {
+  .controller('LoginCtrl', function ($scope, Auth, $location, $rootScope, userAPI) {
     $scope.user = {};
     $scope.errors = {};
 
@@ -15,7 +15,7 @@ angular.module('endApp')
         })
         .then( function() {
           // Logged in, redirect to home
-          $location.path('/');
+          $location.path('/settings');
         })
         .catch( function(err) {
           $scope.errors.other = err.message;

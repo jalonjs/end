@@ -29,6 +29,15 @@ exports.show = function(req, res) {
   });
 };
 
+// Get a thing belong to one
+exports.myApp = function(req, res) {
+  Thing.find({userId :req.params.id }, function (err, thing) {
+    if(err) { return handleError(res, err); }
+    if(!thing) { return res.send(404); }
+    return res.json(thing);
+  });
+};
+
 // review app pass
 exports.pass = function(req, res) {
   if(req.body._id) { delete req.body._id; }

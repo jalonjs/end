@@ -2,11 +2,44 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
-      <h1>修改密码</h1>
-      <br/>
+    <!--我的应用-->
+    <div class="col-sm-8" style="border-right: 1px solid #eeeeee; min-height: 400px;">
+      <h4><span class="glyphicon glyphicon-th-large"></span> 我的应用</h4>
+      <div class="alert alert-success" role="alert">
+        <p ng-if="apps.length == 0">你还没有提交过应用申请，赶快去开放平台尝试吧！</p>
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="app in apps">
+            <div class="media">
+              <div class="media-left pull-left">
+                <a target="_blank" ng-href="/box/play/{{ app._id }}">
+                  <img class="media-object"  alt="{{ app.appName }}" ng-src="{{app.appCover}}" style="width: 64px; height: 64px; border-radius: 50%;">
+                </a>
+              </div>
+              <div class="media-body">
+                <p >应用名称:{{app.appName}}</p>
+                <p >应用描述：{{app.appIntroduction}}</p>
+                <p >封面地址：{{app.appCover}}</p>
+                <p >应用地址：{{app.appUrl}}</p>
+                <p >开发者：{{ app.nickname }}</p>
+                <p >联系方式：{{ app.contact }}</p>
+                <p >申请时间：{{ app.createdAt | showTime }}</p>
+                <p >申请时间：{{ app.createdAt | showTime }}</p>
+                <p >申请状态：
+                  <span class="text-danger" ng-if="!app.ok">未通过或正在等待官方测试</span>
+                  <span class="text-primary" ng-if="app.ok">√ 已通过并上架到了应用商店</span>
+                </p>
+                <a target="_blank" ng-href="/box/play/test/{{ app._id }}" class="btn btn-danger">测试我的应用</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="col-sm-12">
+
+    <!--修改密码-->
+    <div class="col-sm-4" >
+      <h4><span class="glyphicon glyphicon-lock"></span> 修改密码</h4>
+      <br/>
       <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
 
         <div class="form-group">
@@ -15,7 +48,7 @@
           <input type="password" name="password" class="form-control" ng-model="user.oldPassword"
                  mongoose-error/>
           <p class="help-block" ng-show="form.password.$error.mongoose">
-              {{ errors.other }}
+            {{ errors.other }}
           </p>
         </div>
 
