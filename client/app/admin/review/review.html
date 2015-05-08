@@ -10,17 +10,18 @@
       <div class="media-body">
         <p class="media-heading">应用名称:{{app.appName}}</p>
         <p class="media-heading">应用描述：{{app.appIntroduction}}</p>
-        <p class="media-heading">图标地址：{{app.appCover}}</p>
+        <p class="media-heading">封面地址：{{app.appCover}}</p>
         <p class="media-heading">应用地址：{{app.appUrl}}</p>
         <p class="media-heading">开发者：{{ app.nickname }}</p>
         <p class="media-heading">联系方式：{{ app.contact }}</p>
-        <a target="_blank" ng-href="/box/play/test/{{ app._id }}" ng-if="!app.ok" class="btn btn-danger">测试应用</a>
+        <p class="media-heading">申请时间：{{ app.createdAt | showTime }}</p>
+        <a target="_blank" ng-href="/box/play/test/{{ app._id }}" ng-if="!app.ok" class="btn btn-danger">测试地址</a>
         <a target="_blank" ng-href="/box/play/test/{{ app._id }}" ng-if="app.ok" class="btn btn-primary">√ 已通过测试</a>
+        <a ng-click="reviewAppPass(app)" class="btn btn-primary" ng-if="!app.ok">测试通过</a>
+        <a ng-click="reviewAppPass(app)" class="btn btn-default" ng-if="app.ok">取消通过</a>
       </div>
     </div>
     <div style="height: 20px; position: absolute; right: 10px; top: 10px;">
-      <a ng-click="reviewAppPass(app)" class="btn btn-primary btn-xs" ng-if="!app.ok"><span class="glyphicon glyphicon-eye-open"></span>测试通过</a>
-      <a ng-click="reviewAppPass(app)" class="btn btn-default btn-xs" ng-if="app.ok"><span class="glyphicon glyphicon-eye-close"></span>取消通过</a>
       <a ng-click="reviewAppDelete(app)" class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-trash"></span>删除</a>
     </div>
   </li>

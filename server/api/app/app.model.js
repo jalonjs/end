@@ -9,7 +9,8 @@ var AppSchema = new Schema({
   cover: String,
   url: String,
   kind: String,
-  popular: { type: Boolean, default: false }
+  popular: { type: Boolean, default: false },
+  createdAt: { type: Date }
 });
 
 

@@ -55,7 +55,9 @@ angular.module('endApp')
                     thisModal.dismiss(e);
                   }
                 }],
-                data: {}
+                data: {
+                  createdAt: new Date()
+                }
               }
             }, 'modal-primary', 'components/modal/modal.open.html');
 
@@ -95,7 +97,8 @@ angular.module('endApp')
                   }
                 }],
                 data: {
-                  popular: false
+                  popular: false,
+                  createdAt: new Date()
                 }
               }
             }, 'modal-primary', 'components/modal/modal.app.add.html');

@@ -10,7 +10,8 @@ var ThingSchema = new Schema({
   appIntroduction: String,
   appUrl: String,
   appCover: String,
-  ok: { type: Boolean, default: false }
+  ok: { type: Boolean, default: false },
+  createdAt: { type: Date }
 });
 
 module.exports = mongoose.model('Thing', ThingSchema);
