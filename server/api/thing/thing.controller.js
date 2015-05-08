@@ -29,6 +29,20 @@ exports.show = function(req, res) {
   });
 };
 
+// review app pass
+exports.pass = function(req, res) {
+  if(req.body._id) { delete req.body._id; }
+  Thing.findById(req.params.id, function (err, thing) {
+    if (err) { return handleError(res, err); }
+    if(!thing) { return res.send(404); }
+    var updated = _.merge(thing, req.body);
+    updated.save(function (err) {
+      if (err) { return handleError(res, err); }
+      return res.json(200, thing);
+    });
+  });
+};
+
 // Creates a new thing in the DB.
 exports.create = function(req, res) {
   Thing.create(req.body, function(err, thing) {
