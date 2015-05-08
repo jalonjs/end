@@ -4,8 +4,8 @@ angular.module('endApp')
   .factory('openAPI', ['$http',
     function ($http) {
       return {
-        openJoinSubmit: function () {
-          return $http.post('/api/apps/');
+        openJoinSubmit: function (data) {
+          return $http.post('/api/things/', data);
         }
       };
     }

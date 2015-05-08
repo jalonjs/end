@@ -6,7 +6,7 @@
   <li class="list-group-item" ng-repeat="app in apps">
     <div class="media">
       <div class="media-left pull-left">
-        <a href="#">
+        <a target="_blank" ng-href="/box/play/{{ app._id }}">
           <img class="media-object"  alt="{{ app.name }}" ng-src="{{app.cover}}" style="width: 64px; height: 64px; border-radius: 50%;">
         </a>
       </div>
@@ -15,7 +15,8 @@
           <strong>{{app.name}}</strong>
         </h4>
         {{app.introduction}}<br/>
-        <span class="label label-danger">{{ app.kind | appKindName }}</span>
+        分类：
+        <span class="label label-warning">{{ app.kind | appKindName }}</span>
       </div>
     </div>
     <div style="height: 20px; position: absolute; right: 10px; top: 10px;">

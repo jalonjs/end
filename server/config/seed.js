@@ -5,9 +5,9 @@
 
 'use strict';
 
-var Thing = require('../api/thing/thing.model');
-var User = require('../api/user/user.model');
-var App = require('../api/app/app.model');
+var Thing = require('../api/thing/thing.model'); //  开发者提交的
+var User = require('../api/user/user.model');  // 用户
+var App = require('../api/app/app.model');  //  应用
 
 //  这是默认插入的一些测试数据
 App.find({}).remove(function() {
@@ -29,6 +29,7 @@ App.find({}).remove(function() {
 });
 
 
+//
 User.find({}).remove(function() {
   User.create({
     provider: 'local',

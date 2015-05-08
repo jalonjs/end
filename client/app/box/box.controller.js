@@ -18,7 +18,6 @@ angular.module('endApp')
 
       //  通过id再次拿到这个app对应的地址，放到iframe里，以及获得她对应的二维码地址，生成二维码。
       storeAPI.getAppById(appId).success(function (app) {
-        debugger;
         //$scope.appUrl = $sce.trustAsResourceUrl('http://localhost/enddemo');
         $scope.appUrl = $sce.trustAsResourceUrl(app.url);
         $scope.qrcodeUrl = myHost + '/handle/' + uniqueId + '/type/' + (app.handleId || '1');

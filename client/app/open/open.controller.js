@@ -32,8 +32,10 @@ angular.module('endApp')
       $scope.openJoinData = {};
       $scope.showOpenJoinModal = function () {
         var openJoinModal = Modal.confirm.openJoin();
-        openJoinModal(function () {
-          openAPI.openJoinSubmit();
+        openJoinModal(function (data, cd) {
+          openAPI.openJoinSubmit(data).success(function (res) {
+            cd();
+          });
         });
       };
 

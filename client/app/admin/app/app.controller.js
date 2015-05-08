@@ -13,7 +13,7 @@ angular.module('endApp')
       var appAddModal = Modal.confirm.appAdd();
       appAddModal(function (app, cb) {
         appAPI.appAddSubmit(app).success(function (res) {
-          console.log(res);
+          $scope.apps.push(res);
           cb();  //  收起modal
         });
       });
@@ -35,7 +35,7 @@ angular.module('endApp')
     $scope.appPopular = function(app) {
       app.popular = !app.popular;
       appAPI.popularAppById(app).success(function () {
-        
+
       });
 
     };

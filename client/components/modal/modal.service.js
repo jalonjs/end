@@ -42,9 +42,11 @@ angular.module('endApp')
                 buttons: [{
                   classes: 'btn-primary',
                   text: '确定',
-                  click: function(e) {
-                    ok();
-                    thisModal.close(e);
+                  click: function(data) {
+                    ok(data, cb);
+                    function cb() {
+                      thisModal.close();
+                    }
                   }
                 }, {
                   classes: 'btn-default',
