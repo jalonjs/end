@@ -19,7 +19,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}"><a href="/signup">注册</a></li>
         <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login">登录</a></li>
-        <li ng-show="isAdmin()" ui-sref-active="admin" ng-class="{active: isActive('/admin/user') || isActive('/admin/app')}"><a href="/admin/app">后台管理</a></li>
+        <li ng-show="isAdmin()" ui-sref-active="admin" ng-class="{active: isActive('/admin/user') || isActive('/admin/app')}"><a href="/admin/review">后台管理</a></li>
         <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}"><a href="/settings"><span class="glyphicon glyphicon-user"></span> {{ getCurrentUser().name }}</a></li>
         <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">退出</a></li>
       </ul>

@@ -29,14 +29,8 @@ App.find({}).remove(function() {
 });
 
 
-//
-User.find({}).remove(function() {
-  User.create({
-    provider: 'local',
-    name: 'Test User',
-    email: 'test@test.com',
-    password: 'test'
-  }, {
+//  默认几个用户
+User.create({
     provider: 'local',
     role: 'admin',
     name: 'Admin',
@@ -48,8 +42,17 @@ User.find({}).remove(function() {
     name: 'Jalon',
     email: '824525504@qq.com',
     password: '134634ab'
+  },{
+    provider: 'local',
+    name: 'Test User',
+    email: 'test@test.com',
+    password: 'test'
   }, function() {
-      console.log('finished populating users');
-    }
-  );
-});
+    console.log('finished populating users');
+  }
+);
+
+//User.find({}).remove(function() {
+
+
+//});

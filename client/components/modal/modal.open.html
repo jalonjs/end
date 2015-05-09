@@ -7,14 +7,6 @@
   <!--<div ng-if="modal.html" ng-bind-html="modal.html"></div>-->
   <form>
     <div class="form-group">
-      <label for="">怎么称呼你</label>
-      <input type="text" class="form-control" ng-model="modal.data.nickname" placeholder="姓名/昵称">
-    </div>
-    <div class="form-group">
-      <label for="">你的联系方式</label>
-      <input type="text" class="form-control" ng-model="modal.data.contact" placeholder="QQ/电话">
-    </div>
-    <div class="form-group">
       <label for="">应用/游戏的名称</label>
       <input type="text" class="form-control" ng-model="modal.data.appName" placeholder="20个字以内（可包括中英文）" maxlength="20">
     </div>
@@ -29,6 +21,10 @@
     <div class="form-group">
       <label for="">应用/游戏的封面地址（图片大小300*200）</label>
       <input type="text" class="form-control"  ng-model="modal.data.appCover" placeholder="请提供在线地址，方便随时更新">
+    </div>
+    <div class="form-group">
+      <label for="">你的联系方式</label>
+      <input type="text" class="form-control" ng-model="modal.data.contact" placeholder="QQ/电话">
     </div>
   </form>
 </div>

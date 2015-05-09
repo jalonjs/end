@@ -8,9 +8,27 @@ angular.module('endApp')
       if(!Auth.isLoggedIn()) {
         $state.go('login');
       }else {
+        //  得到我的信息
         userAPI.getMe().success(function (me) {
           $rootScope.me = me;
         });
+
+        ////  默认生成一组我提交的申请
+        //var thing = {
+        //  "createdAt": new Date(),
+        //  "contact": "QQ 824525504",
+        //  "nickname": "admin",
+        //  "appName": "太空大战",
+        //  "appIntroduction": "这是一款html5网页游戏，玩家通过手机扫描二维码，即可使用对应的游戏手柄，进行愉快玩耍。",
+        //  "appUrl": "http://localhost/game/spacewar",
+        //  "appCover": "http://localhost:1643/assets/images/spacewar.png",
+        //  "userId": $rootScope.me._id,
+        //  "ok": false
+        //};
+        //
+        //openAPI.openJoinSubmit(thing).success(function (res) {
+        //});
+
       }
 
 
@@ -38,6 +56,7 @@ angular.module('endApp')
         var openJoinModal = Modal.confirm.openJoin();
         openJoinModal(function (app, cd) {
           app.userId = $rootScope.me._id;
+          app.nickname = $rootScope.me.name;
           openAPI.openJoinSubmit(app).success(function (res) {
             cd();
           });
