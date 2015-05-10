@@ -5,7 +5,7 @@ var App = require('./app.model');
 
 // Get list of apps
 exports.index = function(req, res) {
-  App.find(function (err, apps) {
+  App.find({}, null, {sort: [{'_id': -1}]}, function (err, apps) {
     if(err) { return handleError(res, err); }
     return res.json(200, apps);
   });
@@ -13,7 +13,7 @@ exports.index = function(req, res) {
 
 // Get popular apps
 exports.popularList = function(req, res) {
-  App.find({ popular : true }, function (err, list) {
+  App.find({ popular : true }, null, {sort: [{'_id': -1}]}, function (err, list) {
     if(err) { return handleError(res, err); }
     if(!list) { return res.send(404); }
     return res.json(200, list);
@@ -22,7 +22,7 @@ exports.popularList = function(req, res) {
 
 // Get list of apps by kind of
 exports.kindList = function(req, res) {
-  App.find({ kind : req.params.kind }, function (err, list) {
+  App.find({ kind : req.params.kind }, null, {sort: [{'_id': -1}]}, function (err, list) {
     if(err) { return handleError(res, err); }
     if(!list) { return res.send(404); }
     return res.json(200, list);

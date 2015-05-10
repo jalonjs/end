@@ -14,7 +14,7 @@ var Thing = require('./thing.model');
 
 // Get list of things
 exports.index = function(req, res) {
-  Thing.find(function (err, things) {
+  Thing.find({}, null, {sort: [{'_id': -1}]}, function (err, things) {
     if(err) { return handleError(res, err); }
     return res.json(200, things);
   });
@@ -31,7 +31,7 @@ exports.show = function(req, res) {
 
 // Get a thing belong to one
 exports.myApp = function(req, res) {
-  Thing.find({userId :req.params.id }, function (err, thing) {
+  Thing.find({userId :req.params.id }, null, {sort: [{'_id': -1}]}, function (err, thing) {
     if(err) { return handleError(res, err); }
     if(!thing) { return res.send(404); }
     return res.json(thing);

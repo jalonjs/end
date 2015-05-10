@@ -21,7 +21,7 @@ angular.module('endApp')
       var appAddModal = Modal.confirm.appAdd();
       appAddModal(function (app, cb) {
         appAPI.appAddSubmit(app).success(function (res) {
-          $scope.apps.push(res);
+          $scope.apps.unshift(res);
           cb();  //  收起modal
         });
       }, data);
