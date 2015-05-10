@@ -14,7 +14,8 @@ angular.module('endApp')
         name: app.appName || '',
         introduction: app.appIntroduction || '',
         url: app.appUrl || '',
-        cover: app.appCover || ''
+        cover: app.appCover || '',
+        developer: app.developer
       };
 
       if(!app.ok) {

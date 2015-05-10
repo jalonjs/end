@@ -20,12 +20,12 @@
                 <p >应用描述：{{app.appIntroduction}}</p>
                 <p >封面地址：{{app.appCover}}</p>
                 <p >应用地址：{{app.appUrl}}</p>
-                <p >开发者：{{ app.nickname }}</p>
+                <p >开发者：{{ app.developer }}</p>
                 <p >联系方式：{{ app.contact }}</p>
                 <p >申请时间：{{ app.createdAt | showTime }}</p>
                 <p >申请状态：
                   <span class="text-danger" ng-if="!app.ok">未通过或正在等待官方测试</span>
-                  <span class="text-primary" ng-if="app.ok">√ 已通过测试，将被上架到应用商店</span>
+                  <span class="text-primary" ng-if="app.ok">√ 已通过测试并上架到应用商店</span>
                 </p>
                 <a target="_blank" ng-href="/box/play/test/{{ app._id }}" class="btn btn-danger">测试我的应用</a>
               </div>

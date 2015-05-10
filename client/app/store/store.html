@@ -28,7 +28,7 @@
             <h3 class="info-name">{{ item.name }}</h3>
             <p class="info-intro">{{ item.introduction }}</p>
             <p class="text-right">
-              <a href="store/kind/{{ item.kind }}/{{ item._id }}/details" class="btn btn-default hide" role="button">查看详情</a>
+              <button class="btn btn-default" ng-click="appShowDetail(item)">查看详情</button>
               <a target="_blank" href="box/play/run/{{ item._id }}" class="btn btn-primary" role="button">马上开始</a>
             </p>
           </div>

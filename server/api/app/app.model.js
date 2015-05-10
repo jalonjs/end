@@ -9,6 +9,7 @@ var AppSchema = new Schema({
   cover: String,
   url: String,
   kind: String,
+  developer: { type: String, default: '未知' },
   popular: { type: Boolean, default: false },
   createdAt: { type: Date }
 });

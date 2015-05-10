@@ -1,0 +1,11 @@
+<div class="modal-body">
+  <h5>应用详情</h5>
+  <img ng-src="{{ modal.data.cover }}" width="200" style="border: 10px solid #efefef; border-radius: 5px; margin-bottom: 20px;">
+  <ul class="list-group">
+    <li class="list-group-item">应用名称：{{ modal.data.name }}</li>
+    <li class="list-group-item">应用描述：{{ modal.data.introduction }}</li>
+    <li class="list-group-item">所属分类：{{ modal.data.kind | appKindName }}</li>
+    <li class="list-group-item">开发人员：{{ modal.data.developer }}</li>
+    <li class="list-group-item">上架时间：{{ modal.data.createdAt | showTime }}</li>
+  </ul>
+</div>

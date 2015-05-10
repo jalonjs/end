@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var ThingSchema = new Schema({
-  nickname: String,
+  developer: { type: String, default: '未知' },
   contact: String,
   appName: String,
   appIntroduction: String,

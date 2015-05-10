@@ -1,4 +1,4 @@
-<h5>开发者提交的应用</h5>
+<h5>开发者提交的接入申请</h5>
 <ul class="list-group">
   <li class="list-group-item" ng-repeat="app in apps">
     <div class="media">
@@ -12,7 +12,7 @@
         <p class="media-heading">应用描述：{{app.appIntroduction}}</p>
         <p class="media-heading">封面地址：{{app.appCover}}</p>
         <p class="media-heading">应用地址：{{app.appUrl}}</p>
-        <p class="media-heading">开发者：{{ app.nickname }}</p>
+        <p class="media-heading">开发者：{{ app.developer }}</p>
         <p class="media-heading">联系方式：{{ app.contact }}</p>
         <p class="media-heading">申请时间：{{ app.createdAt | showTime }}</p>
         <a target="_blank" ng-href="/box/play/test/{{ app._id }}" ng-if="!app.ok" class="btn btn-danger"><span class="glyphicon glyphicon-eye-open"></span> 测试地址</a>

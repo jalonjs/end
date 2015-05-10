@@ -17,14 +17,16 @@ App.find({}).remove(function() {
     cover: '/assets/images/spacewar.png',
     url: 'http://localhost/game/spacewar',
     kind: 'game',
-    popular: true
+    popular: true,
+    createdAt: new Date()
   },{
     name: '全场投票',
     introduction: '适用于会场，演播间，会议室，教室等多种场合的多人投票应用。',
     cover: '/assets/images/pc.png',
     url: 'http://localhost/enddemo',
     kind: 'office',
-    popular: false
+    popular: false,
+    createdAt: new Date()
   });
 });
 

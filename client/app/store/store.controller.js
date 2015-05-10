@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('endApp')
-  .controller('StoreCtrl', ['$scope', '$stateParams', 'storeAPI', function ($scope, $stateParams, storeAPI) {
+  .controller('StoreCtrl', ['$scope', '$stateParams', 'storeAPI', 'Modal', function ($scope, $stateParams, storeAPI, Modal) {
 
     //  商店菜单的列表数据
     $scope.storeMenuList = [{
@@ -32,6 +32,13 @@ angular.module('endApp')
       storeAPI.getAppList($scope.kind).success(function(list) {
         $scope.storeAppList = list;
       });
+    }
+
+    //  显示应用的详情
+    $scope.appShowDetail = function (app) {
+      var appAddModal = Modal.confirm.appShowDetail();
+      appAddModal(function (app, cb) {
+      }, app);
     }
 
 

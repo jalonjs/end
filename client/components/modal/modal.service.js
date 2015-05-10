@@ -25,12 +25,13 @@ angular.module('endApp')
     // Public API here
     return {
 
-      /* Confirmation modals */
+      /* 申请接入 */
       confirm: {
         openJoin: function(e) {
           e = e || angular.noop;
 
-          return function(ok) {
+          return function(ok, data) {
+            data = data || {};
             var args = Array.prototype.slice.call(arguments),
                 name = args.shift(),
                 thisModal;
@@ -56,6 +57,13 @@ angular.module('endApp')
                   }
                 }],
                 data: {
+                  name: data.name || '',
+                  introduction: data.introduction || '',
+                  url: data.url || '',
+                  cover: data.cover || '',
+                  kind: data.kind || 'other',
+                  developer: data.developer || '未知',
+                  popular: false,
                   createdAt: new Date()
                 }
               }
@@ -103,11 +111,46 @@ angular.module('endApp')
                   url: data.url || '',
                   cover: data.cover || '',
                   kind: data.kind || 'other',
+                  developer: data.developer || '未知',
                   popular: false,
                   createdAt: new Date()
                 }
               }
             }, 'modal-primary', 'components/modal/modal.app.add.html');
+
+            thisModal.result.then(function(event) {
+              e.apply(event, args);
+            });
+          };
+        },
+
+        //  显示app的详情
+        appShowDetail: function(e) {
+          e = e || angular.noop;
+
+          return function(ok, data) {
+            data = data || {};
+            var args = Array.prototype.slice.call(arguments),
+              name = args.shift(),
+              thisModal;
+            thisModal = openModal({
+              modal: {
+                dismissable: true,
+                title: '应用详情',
+                //html: '<p>Are you sure you want to delete <strong>' + name + '</strong> ?</p>',
+                buttons: [],
+                data: {
+                  name: data.name || '',
+                  introduction: data.introduction || '暂无描述',
+                  url: data.url || '',
+                  cover: data.cover || '',
+                  kind: data.kind || 'other',
+                  developer: data.developer || '未知',
+                  popular: false,
+                  createdAt: new Date()
+                }
+              }
+            }, 'modal-default', 'components/modal/modal.app.detail.html');
 
             thisModal.result.then(function(event) {
               e.apply(event, args);

@@ -56,7 +56,7 @@ angular.module('endApp')
         var openJoinModal = Modal.confirm.openJoin();
         openJoinModal(function (app, cd) {
           app.userId = $rootScope.me._id;
-          app.nickname = $rootScope.me.name;
+          app.developer = $rootScope.me.name;
           openAPI.openJoinSubmit(app).success(function (res) {
             cd();
           });

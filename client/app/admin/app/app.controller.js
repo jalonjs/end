@@ -1,7 +1,12 @@
 'use strict';
 
 angular.module('endApp')
-  .controller('AppCtrl', ['$scope', 'appAPI', 'Modal', function ($scope, appAPI, Modal) {
+  .controller('AppCtrl', ['$scope', 'appAPI', 'Modal', '$rootScope', 'userAPI', function ($scope, appAPI, Modal, $rootScope, userAPI) {
+
+    // me
+    userAPI.getMe().success(function (me) {
+      $rootScope.me = me;
+    });
 
     //  显示所有app
     appAPI.getAllApps().success(function (data) {
@@ -10,13 +15,16 @@ angular.module('endApp')
 
     //  添加app
     $scope.appAdd = function () {
+      var data = {
+        developer: $rootScope.me.name
+      };
       var appAddModal = Modal.confirm.appAdd();
       appAddModal(function (app, cb) {
         appAPI.appAddSubmit(app).success(function (res) {
           $scope.apps.push(res);
           cb();  //  收起modal
         });
-      });
+      }, data);
     };
 
     //  删除某个app
