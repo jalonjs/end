@@ -13,6 +13,9 @@ angular.module('endApp')
         case 'media':
           return '媒体';
           break;
+        default :
+          return '其他';
+          break;
       }
     };
   });

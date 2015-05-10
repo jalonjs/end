@@ -71,7 +71,8 @@ angular.module('endApp')
         appAdd: function(e) {
           e = e || angular.noop;
 
-          return function(ok) {
+          return function(ok, data) {
+            data = data || {};
             var args = Array.prototype.slice.call(arguments),
               name = args.shift(),
               thisModal;
@@ -97,6 +98,11 @@ angular.module('endApp')
                   }
                 }],
                 data: {
+                  name: data.name || '',
+                  introduction: data.introduction || '',
+                  url: data.url || '',
+                  cover: data.cover || '',
+                  kind: data.kind || 'other',
                   popular: false,
                   createdAt: new Date()
                 }

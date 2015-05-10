@@ -16,6 +16,9 @@ angular.module('endApp')
     },{
       name: '媒体',
       kind: 'media'
+    },{
+      name: '其他',
+      kind: 'other'
     }];
 
     //  菜单对应的应用的列表数据

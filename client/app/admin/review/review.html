@@ -15,10 +15,10 @@
         <p class="media-heading">开发者：{{ app.nickname }}</p>
         <p class="media-heading">联系方式：{{ app.contact }}</p>
         <p class="media-heading">申请时间：{{ app.createdAt | showTime }}</p>
-        <a target="_blank" ng-href="/box/play/test/{{ app._id }}" ng-if="!app.ok" class="btn btn-danger">测试地址</a>
-        <a target="_blank" ng-href="/box/play/test/{{ app._id }}" ng-if="app.ok" class="btn btn-primary">√ 已通过测试</a>
-        <a ng-click="reviewAppPass(app)" class="btn btn-primary" ng-if="!app.ok">测试通过</a>
-        <a ng-click="reviewAppPass(app)" class="btn btn-default" ng-if="app.ok">取消通过</a>
+        <a target="_blank" ng-href="/box/play/test/{{ app._id }}" ng-if="!app.ok" class="btn btn-danger"><span class="glyphicon glyphicon-eye-open"></span> 测试地址</a>
+        <a target="_blank" ng-href="/box/play/test/{{ app._id }}" ng-if="app.ok" class="btn btn-primary">√ 已通过测试并添加到应用商店</a>
+        <a ng-click="reviewAppPass(app)" class="btn btn-primary" ng-if="!app.ok">测试通过并添加到商店</a>
+        <!--<a ng-click="reviewAppPass(app)" class="btn btn-default" ng-if="app.ok">取消通过</a>-->
       </div>
     </div>
     <div style="height: 20px; position: absolute; right: 10px; top: 10px;">

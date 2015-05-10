@@ -9,7 +9,7 @@
       <br/>
     </div>
     <div class="col-sm-12">
-      <form class="form" name="form" ng-submit="login(form)" novalidate>
+      <form class="form" name="form" ng-submit="login(form)" novalidate ng-init="user.email='admin@admin.com';user.password='admin';">
 
         <div class="form-group">
           <label>邮箱</label>
