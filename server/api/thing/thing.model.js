@@ -11,8 +11,9 @@ var ThingSchema = new Schema({
   appUrl: String,
   appCover: String,
   ok: { type: Boolean, default: false },
-  createdAt: { type: Date },
-  userId: String
+  userId: String,
+  keyCmd: String,
+  createdAt: Date
 });
 
 module.exports = mongoose.model('Thing', ThingSchema);

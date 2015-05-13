@@ -64,6 +64,7 @@ angular.module('endApp')
                   kind: data.kind || 'other',
                   developer: data.developer || '未知',
                   popular: false,
+                  keyCmd: [],
                   createdAt: new Date()
                 }
               }
@@ -113,6 +114,7 @@ angular.module('endApp')
                   kind: data.kind || 'other',
                   developer: data.developer || '未知',
                   popular: false,
+                  keyCmd: data.keyCmd || [],
                   createdAt: new Date()
                 }
               }

@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('endApp')
-  .controller('HandleCtrl', ['$scope', '$stateParams', 'socket',
-    function ($scope, $stateParams, socket) {
+  .controller('HandleCtrl', ['$scope', '$stateParams', 'socket', 'appAPI',
+    function ($scope, $stateParams, socket, appAPI) {
 
       //  更改标题
       document.title = 'End 手柄';
@@ -14,8 +14,26 @@ angular.module('endApp')
       });
 
       //  游戏手柄 game 前端扫码访问成功后，通知服务器
-      var uniqueId = $stateParams.id;
-      var handleId = $stateParams.handleId;
+      var uniqueId = $stateParams.uniqueId;
+      var appId = $stateParams.id;
+
+      //  自定义手柄，获得app对应的的cmd命令集
+      $scope.keyCmd = [];
+      $scope.isGame = true;
+
+      appAPI.getAppById(appId).success(function (res) {
+
+        //  判断手柄类型
+        if(res.keyCmd) {
+          var keyCmd = JSON.parse(res.keyCmd);
+          $scope.isGame = keyCmd.length == 0;
+          //  app
+          if(!$scope.isGame) {
+            $scope.keyCmd = keyCmd || [];
+          }
+        }
+
+      });
 
       socket.socket.emit('handle:ok', uniqueId);
 

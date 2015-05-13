@@ -14,7 +14,7 @@
     <hr/>
     <h2>接入文档</h2>
     <div class="table-responsive">
-      <h3>1，常见游戏接入方式</h3>
+      <h4>1，经典游戏手柄接入方式</h4>
       <h5>经典游戏手柄按键及对应命令接口</h5>
       <table class="table table-bordered table-striped">
         <thead>
@@ -33,23 +33,37 @@
         </tbody>
       </table>
 
+      <!--自定义按键-->
+      <h4>2，自定义按键手柄接入方式</h4>
+      <p>如果你要接入的是一般应用或复杂游戏，那么你可以选择使用自定义按键手柄，通过点击<span class="text-danger">【提交资料申请接入】</span>按钮填写资料并提交<span class="text-danger">【自定义按键和命令的json集】</span>，我们可以为你自动生成对应的手柄。</p>
+      <span class="text-muted">命令集合：</span>
+      <code class="text-danger">
+        [{"key":"开始","cmd":"start"},{"key":"下一个","cmd":"next"}]
+      </code>
+      <br/><br/>
+      <span class="text-muted">手柄端生成的按键：</span>
+      <button class="btn btn-default">开始</button>
+      <button class="btn btn-default">下一个</button>
+
+    </div>
+
+    <h3 class="text-danger">游戏或应用端接收命令及使用</h3>
       <pre>
         <span class="text-muted">你只需要监听message事件,并根据相应的cmd命令，做出对应的反应操作即可。</span>
         <code>
           window.addEventListener(<span class="red">"message"</span>, function( <span class="red">event</span> ) {
-              var <span class="red">cmd</span> = <span class="red">event.data</span>;
+          var <span class="red">cmd</span> = <span class="red">event.data</span>;
 
-              <span class="text-muted">//  根据命名执行对应的操作</span>
-              switch (<span class="red">cmd</span>) {
-                  case <span class="red">'up'</span>:
-                      <span class="text-muted">//  todo something</span>
-                      console.log(<span class="red">'I will jump!'</span>);
-                      break;
-              }
+          <span class="text-muted">//  根据命名执行对应的操作</span>
+          switch (<span class="red">cmd</span>) {
+          case <span class="red">'up'</span>:
+          <span class="text-muted">//  todo something</span>
+          console.log(<span class="red">'I will jump!'</span>);
+          break;
+          }
           });
         </code>
       </pre>
-
-    </div>
   </div>
+
 </div>

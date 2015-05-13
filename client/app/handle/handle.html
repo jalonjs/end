@@ -1,4 +1,9 @@
-<div class="game" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none;">
+<!--按键音-->
+<audio id="touchAudio" src="assets/audio/notify.wav">
+  not work
+</audio>
+<!--经典游戏手柄-->
+<div class="game" ng-if="isGame" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none;">
   <span class="logo-text">End</span>
   <div class="top-left">
     <div class="line line-1">
@@ -28,7 +33,12 @@
     <button class="btn btn-info" id="game-btn-refresh" ng-touchstart="cmdtouch('refresh')" ng-touchend="cmdtouch('touchend')" >刷新</button>
 
   </div>
-  <audio id="touchAudio" src="assets/audio/notify.wav">
-    not work
-  </audio>
+</div>
+
+<!--自定义按键-->
+<div class="app" ng-if="!isGame" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none;">
+  <header>End手柄</header>
+  <div class="body">
+    <button type="button" class="btn btn-primary" ng-repeat="k in keyCmd" ng-touchstart="cmdtouch('{{ k.cmd }}')" ng-touchend="cmdtouch('touchend')">{{ k.key }}</button>
+  </div>
 </div>

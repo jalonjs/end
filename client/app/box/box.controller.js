@@ -23,7 +23,7 @@ angular.module('endApp')
         reviewAPI.getAppById(appId).success(function (app) {
           //$scope.appUrl = $sce.trustAsResourceUrl('http://localhost/enddemo');
           $scope.appUrl = $sce.trustAsResourceUrl(app.appUrl);
-          $scope.qrcodeUrl = myHost + '/handle/' + uniqueId + '/type/' + (app.handleId || '1');
+          $scope.qrcodeUrl = myHost + '/handle/' + uniqueId + '/id/' + appId;
         });
 
       //  线上正式
@@ -32,7 +32,7 @@ angular.module('endApp')
         storeAPI.getAppById(appId).success(function (app) {
           //$scope.appUrl = $sce.trustAsResourceUrl('http://localhost/enddemo');
           $scope.appUrl = $sce.trustAsResourceUrl(app.url);
-          $scope.qrcodeUrl = myHost + '/handle/' + uniqueId + '/type/' + (app.handleId || '1');
+          $scope.qrcodeUrl = myHost + '/handle/' + uniqueId + '/id/' + appId;
         });
       }
 

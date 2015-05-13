@@ -26,6 +26,11 @@
       <label for="">你的联系方式</label>
       <input type="text" class="form-control" ng-model="modal.data.contact" placeholder="QQ/电话">
     </div>
+    <hr/>
+    <div class="form-group">
+      <label for="">自定义按键和命令的json集(使用经典游戏手柄接入的无需填写)</label>
+      <textarea class="form-control" rows="3" data-ng-model="modal.data.keyCmd" placeholder='如[{"key":"开始","cmd":"start"},{"key":"下一个","cmd":"next"}]'></textarea>
+    </div>
   </form>
 </div>
 <div class="modal-footer">

@@ -18,6 +18,7 @@ App.find({}).remove(function() {
     url: 'http://localhost/game/spacewar',
     kind: 'game',
     popular: true,
+    keyCmd: [],
     createdAt: new Date()
   },{
     name: '全场投票',
@@ -26,6 +27,7 @@ App.find({}).remove(function() {
     url: 'http://localhost/enddemo',
     kind: 'office',
     popular: false,
+    keyCmd: [],
     createdAt: new Date()
   });
 });

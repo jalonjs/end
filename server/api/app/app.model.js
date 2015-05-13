@@ -11,7 +11,8 @@ var AppSchema = new Schema({
   kind: String,
   developer: { type: String, default: '未知' },
   popular: { type: Boolean, default: false },
-  createdAt: { type: Date }
+  keyCmd: String,
+  createdAt: Date
 });
 
 

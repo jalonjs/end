@@ -15,7 +15,8 @@ angular.module('endApp')
         introduction: app.appIntroduction || '',
         url: app.appUrl || '',
         cover: app.appCover || '',
-        developer: app.developer
+        developer: app.developer,
+        keyCmd: app.keyCmd || {}
       };
 
       if(!app.ok) {
