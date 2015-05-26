@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('endApp')
-  .controller('HandleCtrl', ['$scope', '$stateParams', 'socket', 'appAPI',
-    function ($scope, $stateParams, socket, appAPI) {
+  .controller('HandleCtrl', ['$scope', '$stateParams', 'socket', 'appAPI', 'reviewAPI',
+    function ($scope, $stateParams, socket, appAPI, reviewAPI) {
 
       //  更改标题
       document.title = 'End 手柄';
@@ -14,6 +14,7 @@ angular.module('endApp')
       });
 
       //  游戏手柄 game 前端扫码访问成功后，通知服务器
+      var status = $stateParams.status;
       var uniqueId = $stateParams.uniqueId;
       var appId = $stateParams.id;
 
@@ -21,19 +22,38 @@ angular.module('endApp')
       $scope.keyCmd = [];
       $scope.isGame = true;
 
-      appAPI.getAppById(appId).success(function (res) {
+      //  正式
+      if(status == 'run') {
+        appAPI.getAppById(appId).success(function (res) {
 
-        //  判断手柄类型
-        if(res.keyCmd) {
-          var keyCmd = JSON.parse(res.keyCmd);
-          $scope.isGame = keyCmd.length == 0;
-          //  app
-          if(!$scope.isGame) {
-            $scope.keyCmd = keyCmd || [];
+          //  判断手柄类型
+          if(res.keyCmd) {
+            var keyCmd = JSON.parse(res.keyCmd);
+            //  如果没有keyCMD存在，则为app
+            if(keyCmd.length != 0) {
+              $scope.isGame = false;
+              $scope.keyCmd = keyCmd || [];
+            }
           }
-        }
 
-      });
+        });
+      }else if(status == 'test') {
+      //  测试
+        reviewAPI.getAppById(appId).success(function (res) {
+
+          //  判断手柄类型
+          if(res.keyCmd) {
+            var keyCmd = JSON.parse(res.keyCmd);
+            //  如果没有keyCMD存在，则为app
+            if(keyCmd.length != 0) {
+              $scope.isGame = false;
+              $scope.keyCmd = keyCmd || [];
+            }
+          }
+
+        });
+      }
+
 
       socket.socket.emit('handle:ok', uniqueId);
 
