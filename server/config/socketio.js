@@ -56,8 +56,8 @@ module.exports = function (socketio) {
     console.info('[%s] CONNECTED', socket.address);
 
     // 监听手柄加载完毕
-    socket.on('handle:ok', function (uniqueId) {
-      socketio.emit('box:'+ uniqueId +':mask:hide');
+    socket.on('handle:ok', function (data) {
+      socketio.emit('box:'+ data.uniqueId, data.isGame);
     });
     // 命令
     socket.on('handle:cmd', function (ucmd) {

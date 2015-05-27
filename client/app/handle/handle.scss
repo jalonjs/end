@@ -96,6 +96,7 @@
 .app {
   width: 100%;
   position: absolute;
+  text-align: center;
   header {
     width: 100%;
     height: 40px;
@@ -106,8 +107,11 @@
     line-height: 40px;
     border-bottom: 1px solid #eee;
   }
-  button {
-    margin: 10px;
-    border: none;
+  .body {
+    padding: 20px;
+    button {
+      margin: 10px;
+      border: none;
+    }
   }
 }

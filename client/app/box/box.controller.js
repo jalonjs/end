@@ -37,8 +37,10 @@ angular.module('endApp')
       }
 
       //  手柄加载成功后，去除二维码遮罩层
-      socket.socket.on('box:' + uniqueId + ':mask:hide', function () {
-        $scope.maskShow = false;  //  隐藏遮罩及二维码
+      socket.socket.on('box:' + uniqueId, function (isGame) {
+        if(isGame) {
+          $scope.maskShow = false;  //  隐藏遮罩及二维码
+        }
       });
 
       //  命令

@@ -26,6 +26,15 @@
       <label for="">你的联系方式</label>
       <input type="text" class="form-control" ng-model="modal.data.contact" placeholder="QQ/电话">
     </div>
+    <div class="form-group">
+      <label for="">应用/游戏的是否公开（选择私有则在个人中心可以自己使用，公开则会被其他人使用）</label>
+      <label class="radio-inline">
+        <input type="radio" value="public" ng-model="modal.data.scope"> 公开
+      </label>
+      <label class="radio-inline">
+        <input type="radio" value="private" ng-model="modal.data.scope"> 私有
+      </label>
+    </div>
     <hr/>
     <div class="form-group">
       <label for="">自定义按键和命令的json集(使用经典游戏手柄接入的无需填写)</label>

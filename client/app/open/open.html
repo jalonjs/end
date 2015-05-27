@@ -52,7 +52,7 @@
         <span class="text-muted">你只需要监听message事件,并根据相应的cmd命令，做出对应的反应操作即可。</span>
         <code>
           window.addEventListener(<span class="red">"message"</span>, function( <span class="red">event</span> ) {
-          var <span class="red">cmd</span> = <span class="red">event.data</span>;
+          var <span class="red">cmd</span> = <span class="red">event.data.cmd</span>;
 
           <span class="text-muted">//  根据命名执行对应的操作</span>
           switch (<span class="red">cmd</span>) {

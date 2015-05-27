@@ -65,6 +65,7 @@ angular.module('endApp')
                   developer: data.developer || '未知',
                   popular: false,
                   keyCmd: [],
+                  scope: data.scope || 'public',
                   createdAt: new Date()
                 }
               }

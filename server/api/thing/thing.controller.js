@@ -14,7 +14,7 @@ var Thing = require('./thing.model');
 
 // Get list of things
 exports.index = function(req, res) {
-  Thing.find({}, null, {sort: [{'_id': -1}]}, function (err, things) {
+  Thing.find({'scope':'public'}, null, {sort: [{'_id': -1}]}, function (err, things) {
     if(err) { return handleError(res, err); }
     return res.json(200, things);
   });

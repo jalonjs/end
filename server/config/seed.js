@@ -18,16 +18,31 @@ App.find({}).remove(function() {
     url: 'http://localhost/game/spacewar',
     kind: 'game',
     popular: true,
-    keyCmd: [],
+    keyCmd: '[]',
     createdAt: new Date()
   },{
-    name: '全场投票',
-    introduction: '适用于会场，演播间，会议室，教室等多种场合的多人投票应用。',
-    cover: '/assets/images/pc.png',
-    url: 'http://localhost/enddemo',
-    kind: 'office',
-    popular: false,
-    keyCmd: [],
+    name: '2013快男总决赛投票',
+    introduction: '在现场大屏幕上展示二维码，现场用户用手机扫描二维码，可以对选手进行投票。',
+    cover: 'http://localhost/superboyvote/img/sblogo.png',
+    url: 'http://localhost/superboyvote/index.html',
+    kind: 'media',
+    popular: true,
+    keyCmd: '[{"key":"1号", "cmd":"1"},{"key":"2号", "cmd":"2"},{"key":"3号", "cmd":"3"}]',
+    createdAt: new Date()
+  });
+});
+
+//  这是默认插入的一些测试数据
+Thing.find({}).remove(function() {
+  Thing.create({
+    name: '2013快男总决赛投票',
+    introduction: '在现场大屏幕上展示二维码，现场用户用手机扫描二维码，可以对选手进行投票。',
+    cover: 'http://localhost/superboyvote/img/sblogo.png',
+    url: 'http://localhost/superboyvote/index.html',
+    kind: 'media',
+    popular: true,
+    scope: 'private',
+    keyCmd: '[{"key":"1号", "cmd":"1"},{"key":"2号", "cmd":"2"},{"key":"3号", "cmd":"3"}]',
     createdAt: new Date()
   });
 });

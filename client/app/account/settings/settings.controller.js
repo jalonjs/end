@@ -13,6 +13,17 @@ angular.module('endApp')
         });
       });
 
+      //  删除
+      $scope.reviewAppDelete = function (app) {
+        reviewAPI.reviewAppDelete(app).success(function (data) {
+          angular.forEach($scope.apps, function(u, i) {
+            if (u === app) {
+              $scope.apps.splice(i, 1);
+            }
+          });
+        });
+      };
+
 
       $scope.changePassword = function(form) {
         $scope.submitted = true;

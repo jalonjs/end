@@ -20,7 +20,6 @@ angular.module('endApp')
 
       //  自定义手柄，获得app对应的的cmd命令集
       $scope.keyCmd = [];
-      $scope.isGame = true;
 
       //  正式
       if(status == 'run') {
@@ -33,7 +32,17 @@ angular.module('endApp')
             if(keyCmd.length != 0) {
               $scope.isGame = false;
               $scope.keyCmd = keyCmd || [];
+            }else {
+              $scope.isGame = true;
             }
+
+
+            //  发送通知，让浏览器隐藏二维码遮罩层，游戏就隐藏遮罩层
+            socket.socket.emit('handle:ok', {
+              "uniqueId": uniqueId,
+              "isGame": $scope.isGame
+            });
+
           }
 
         });
@@ -49,22 +58,32 @@ angular.module('endApp')
               $scope.isGame = false;
               $scope.keyCmd = keyCmd || [];
             }
+
+          }else {
+            $scope.isGame = true;
           }
+
+          //  发送通知，让浏览器隐藏二维码遮罩层，游戏就隐藏遮罩层
+          socket.socket.emit('handle:ok', {
+            "uniqueId": uniqueId,
+            "isGame": $scope.isGame
+          });
 
         });
       }
 
 
-      socket.socket.emit('handle:ok', uniqueId);
 
       //angular.element('.game').append('<audio id="touchAudio" ><source src="resource/notify.ogg" type="audio/ogg"><source src="resource/notify.mp3" type="audio/mpeg"> <source src="resource/notify.wav" type="audio/wav"> </audio>');
 
       //  按钮对应命令们
+      localStorage.setItem('handleId', new Date().getTime());
       $scope.cmdtouch = function (cmd) {
         var ucmd = {
           uid: uniqueId,
           cmd: cmd,
-          time: new Date().getTime()
+          time: new Date().getTime(),
+          handleId: localStorage.getItem('handleId')
         };
         socket.socket.emit('handle:cmd', ucmd);
 

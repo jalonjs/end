@@ -13,6 +13,7 @@ var ThingSchema = new Schema({
   ok: { type: Boolean, default: false },
   userId: String,
   keyCmd: String,
+  scope: { type: String, default: 'public' },
   createdAt: Date
 });
 
