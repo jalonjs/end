@@ -14,59 +14,126 @@
     z-index: 11;
     @include rotate90();
   }
-  .top-left {
-    background: $main-color;
-    width: 100%;
-    height: 50%;
-    padding: 20px;
+
+  //  扇形方向手柄
+  #s1, #s2, #s3, #s4 {
+    width: 110px;
+    height: 110px;
     position: absolute;
+    transform-origin:100% 100%;
+    -ms-transform-origin:100% 100%; 		/* IE 9 */
+    -webkit-transform-origin:100% 100%;	/* Safari å Chrome */
+    -moz-transform-origin:100% 100%;		/* Firefox */
+    -o-transform-origin:100% 100%;
+    border: none;
     text-align: center;
-    top: 0;
+    &:hover {
+      background: #cccccc;
+    }
   }
-  .bottom-right {
-    position: absolute;
-    width: 100%;
-    height: 50%;
-    bottom: 0;
-    text-align: center;
+
+  #s1 {
     background: #FFFFFF;
-    padding-top: 6%;
-    .line {
-      height: 30%;
-      margin-bottom: 3%;
-      .btn {
-        @include rotate90();
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);		/* IE 9 */
+    -webkit-transform: rotate(45deg);	/* Safari and Chrome */
+    -o-transform: rotate(45deg);		/* Opera */
+    -moz-transform: rotate(45deg);
+    z-index: 1;
+  }
+
+  #s2 {
+    background: #eeeeee;
+    transform: rotate(135deg);
+    -ms-transform: rotate(135deg);		/* IE 9 */
+    -webkit-transform: rotate(135deg);	/* Safari and Chrome */
+    -o-transform: rotate(135deg);		/* Opera */
+    -moz-transform: rotate(135deg);
+    z-index: 1;
+  }
+
+  #s3 {
+    background: #FFFFFF;
+    transform: rotate(225deg);
+    -ms-transform: rotate(225deg);		/* IE 9 */
+    -webkit-transform: rotate(225deg);	/* Safari and Chrome */
+    -o-transform: rotate(225deg);		/* Opera */
+    -moz-transform: rotate(225deg);
+    z-index: 1;
+  }
+
+  #s4 {
+    background: #eeeeee;
+    transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);		/* IE 9 */
+    -webkit-transform: rotate(-45deg);	/* Safari and Chrome */
+    -o-transform: rotate(-45deg);		/* Opera */
+    -moz-transform: rotate(-45deg);
+    z-index: 1;
+  }
+
+  #circle {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    overflow: hidden;
+    left: 50px;
+    top: 10px;
+  }
+    .top-left {
+      background: $main-color;
+      width: 100%;
+      height: 50%;
+      padding: 20px;
+      position: absolute;
+      text-align: center;
+      top: 0;
+    }
+    .bottom-right {
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      bottom: 0;
+      text-align: center;
+      background: #FFFFFF;
+      padding-top: 6%;
+      .line {
+        height: 30%;
+        margin-bottom: 3%;
+        .btn {
+          @include rotate90();
+        }
       }
     }
-  }
 
   .line {
-    width: 100%;
-    height: 33%;
-    position: relative;
-    .btn {
-      line-height: 20px;
-      text-align: center;
-      width: 68px;
-      height: 68px;
-      padding-top: 8px;
-      font-weight: bolder;
-      border: none;
+      width: 100%;
+      height: 33%;
+      position: relative;
+      .btn {
+        line-height: 20px;
+        text-align: center;
+        width: 68px;
+        height: 68px;
+        padding-top: 8px;
+        font-weight: bolder;
+        border: none;
+      }
+      &.line-2 {
+        line-height: 33%;
+      }
+      .btn-1 {
+        position: absolute;
+        left: 15%;
+      }
+      .btn-2 {
+        position: absolute;
+        right: 15%;
+      }
     }
-    &.line-2 {
-      line-height: 33%;
-    }
-    .btn-1 {
-      position: absolute;
-      left: 15%;
-    }
-    .btn-2 {
-      position: absolute;
-      right: 15%;
-    }
-  }
 
-//  开始 暂停
+  //  开始 暂停
   #game-btn-start {
     position: absolute;
     left: 10px;
@@ -114,4 +181,5 @@
       border: none;
     }
   }
+
 }

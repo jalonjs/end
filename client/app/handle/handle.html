@@ -5,7 +5,7 @@
 <!--经典游戏手柄-->
 <div class="game" ng-if="isGame" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none;">
   <span class="logo-text">End</span>
-  <div class="top-left">
+  <div class="top-left hide">
     <div class="line line-1">
       <button class="btn btn-default btn-lg" ng-touchstart="cmdtouch('left')"  ng-touchend="cmdtouch('touchend')">↑</button>
     </div>
@@ -15,6 +15,16 @@
     </div>
     <div class="line line-3">
       <button class="btn btn-default btn-lg" ng-touchstart="cmdtouch('right')" ng-touchend="cmdtouch('touchend')">↓</button>
+    </div>
+  </div>
+
+  <!--扇形圆形手柄-->
+  <div class="top-left">
+    <div id="circle">
+      <div id="s1"ng-touchstart="cmdtouch('left')" ng-touchend="cmdtouch('touchend')"></div>
+      <div id="s2" ng-touchstart="cmdtouch('up')" ng-touchend="cmdtouch('touchend')"></div>
+      <div id="s3" ng-touchstart="cmdtouch('right')" ng-touchend="cmdtouch('touchend')"></div>
+      <div id="s4" ng-touchstart="cmdtouch('down')" ng-touchend="cmdtouch('touchend')"></div>
     </div>
   </div>
   <div class="bottom-right">

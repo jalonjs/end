@@ -48,6 +48,12 @@ angular.module('endApp')
         cmd:'z', handle:'功能键 Z'
       },{
         cmd:'touchend', handle:'手指离开按键'
+      },{
+        cmd:'start', handle:'开始'
+      },{
+        cmd:'pause', handle:'暂停'
+      },{
+        cmd:'refresh', handle:'刷新'
       }];
 
       /*接入开放平台的弹出框*/
